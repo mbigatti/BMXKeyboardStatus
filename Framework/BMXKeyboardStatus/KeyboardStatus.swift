@@ -8,9 +8,9 @@
 
 import UIKit
 
-class KeyboardStatus : NSObject {
+public class KeyboardStatus : NSObject {
     
-    class var sharedInstance : KeyboardStatus {
+    public class var sharedInstance : KeyboardStatus {
         struct Static {
             static let instance : KeyboardStatus = KeyboardStatus()
         }
@@ -26,11 +26,11 @@ class KeyboardStatus : NSObject {
         unregisterNotifications()
     }
     
-    var keyboardShowed = false
-    var keyboardBeginFrame : CGRect?
-    var keyboardEndFrame : CGRect?
-    var keyboardAnimationDuration : Float?
-    var keyboardAnimationCurve : UIViewAnimationCurve?
+    public var keyboardShowed = false
+    public var keyboardBeginFrame : CGRect?
+    public var keyboardEndFrame : CGRect?
+    public var keyboardAnimationDuration : Float?
+    public var keyboardAnimationCurve : UIViewAnimationCurve?
     
     func registerNotifications() {
         let nc = NSNotificationCenter.defaultCenter()
@@ -43,7 +43,7 @@ class KeyboardStatus : NSObject {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
-    @objc func keyboardDidShow(notification : NSNotification) {
+    func keyboardDidShow(notification : NSNotification) {
         keyboardShowed = true
         
         let userInfo = notification.userInfo as NSDictionary
@@ -54,7 +54,7 @@ class KeyboardStatus : NSObject {
         keyboardAnimationCurve = UIViewAnimationCurve.fromRaw(userInfo.objectForKey(UIKeyboardAnimationCurveUserInfoKey).integerValue)
     }
     
-    @objc func keyboardWillHide(notification : NSNotification) {
+    func keyboardWillHide(notification : NSNotification) {
         keyboardShowed = false
         keyboardEndFrame = nil
         keyboardAnimationDuration = nil
