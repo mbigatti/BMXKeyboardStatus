@@ -17,7 +17,7 @@ public class KeyboardStatus : NSObject {
         return Static.instance
     }
     
-    init() {
+    override init() {
         super.init()
         registerNotifications()
     }
@@ -46,12 +46,12 @@ public class KeyboardStatus : NSObject {
     func keyboardDidShow(notification : NSNotification) {
         keyboardShowed = true
         
-        let userInfo = notification.userInfo as NSDictionary
+        let userInfo = notification.userInfo! as NSDictionary
         
-        keyboardBeginFrame = userInfo.objectForKey(UIKeyboardFrameBeginUserInfoKey).CGRectValue()
-        keyboardEndFrame = userInfo.objectForKey(UIKeyboardFrameEndUserInfoKey).CGRectValue()
-        keyboardAnimationDuration = userInfo.objectForKey(UIKeyboardAnimationDurationUserInfoKey).floatValue
-        keyboardAnimationCurve = UIViewAnimationCurve.fromRaw(userInfo.objectForKey(UIKeyboardAnimationCurveUserInfoKey).integerValue)
+        keyboardBeginFrame = userInfo.objectForKey(UIKeyboardFrameBeginUserInfoKey)!.CGRectValue()
+        keyboardEndFrame = userInfo.objectForKey(UIKeyboardFrameEndUserInfoKey)!.CGRectValue()
+        keyboardAnimationDuration = userInfo.objectForKey(UIKeyboardAnimationDurationUserInfoKey)!.floatValue
+        keyboardAnimationCurve = UIViewAnimationCurve.fromRaw(userInfo.objectForKey(UIKeyboardAnimationCurveUserInfoKey)!.integerValue)
     }
     
     func keyboardWillHide(notification : NSNotification) {
