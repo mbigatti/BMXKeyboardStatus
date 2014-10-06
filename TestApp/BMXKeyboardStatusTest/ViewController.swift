@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         if ks.keyboardShowed {
             println("showed \(ks.keyboardBeginFrame) -> \(ks.keyboardEndFrame) duration=\(ks.keyboardAnimationDuration) ")
             if let curve = ks.keyboardAnimationCurve {
-                println("  curve=\(curve.toRaw())")
+                println("  curve=\(curve.rawValue)")
             }
         } else {
             println("not showed")
