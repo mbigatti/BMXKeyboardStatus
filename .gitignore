@@ -1,3 +1,5 @@
+._*
+*.DS_Store
 
 BMXKeyboardStatus.xcworkspace/xcuserdata/*
 TestApp/BMXKeyboardStatusTest.xcodeproj/xcuserdata/*
