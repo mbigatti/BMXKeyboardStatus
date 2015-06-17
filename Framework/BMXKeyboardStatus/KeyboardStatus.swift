@@ -65,15 +65,15 @@ public class KeyboardStatus : NSObject {
     /**
         Keyboard was shown callback function
     
-        :param: notification notification
+        - parameter notification: notification
      */
     func keyboardDidShow(notification : NSNotification) {
         keyboardShowed = true
         
         let userInfo = notification.userInfo! as NSDictionary
         
-        keyboardBeginFrame = userInfo.objectForKey(UIKeyboardFrameBeginUserInfoKey)!.CGRectValue()
-        keyboardEndFrame = userInfo.objectForKey(UIKeyboardFrameEndUserInfoKey)!.CGRectValue()
+        keyboardBeginFrame = userInfo.objectForKey(UIKeyboardFrameBeginUserInfoKey)!.CGRectValue
+        keyboardEndFrame = userInfo.objectForKey(UIKeyboardFrameEndUserInfoKey)!.CGRectValue
         keyboardAnimationDuration = userInfo.objectForKey(UIKeyboardAnimationDurationUserInfoKey)!.floatValue
         keyboardAnimationCurve = UIViewAnimationCurve(rawValue: userInfo.objectForKey(UIKeyboardAnimationCurveUserInfoKey)!.integerValue)
     }
@@ -81,7 +81,7 @@ public class KeyboardStatus : NSObject {
     /**
         Keyboard was hide callback function
     
-        :param: notification notification
+        - parameter notification: notification
     */
     func keyboardWillHide(notification : NSNotification) {
         keyboardShowed = false

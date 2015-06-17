@@ -15,12 +15,12 @@ class ViewController: UIViewController {
         let ks = KeyboardStatus.sharedInstance
 
         if ks.keyboardShowed {
-            println("showed \(ks.keyboardBeginFrame) -> \(ks.keyboardEndFrame) duration=\(ks.keyboardAnimationDuration) ")
+            print("showed \(ks.keyboardBeginFrame) -> \(ks.keyboardEndFrame) duration=\(ks.keyboardAnimationDuration) ")
             if let curve = ks.keyboardAnimationCurve {
-                println("  curve=\(curve.rawValue)")
+                print("  curve=\(curve.rawValue)")
             }
         } else {
-            println("not showed")
+            print("not showed")
         }
     }
 
